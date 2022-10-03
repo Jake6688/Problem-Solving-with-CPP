@@ -1,0 +1,80 @@
+/// Combine imperial to metric and metric to imperial 
+
+#include <iostream>
+using namespace std;
+
+void input();
+int metric2imperial_converter(double, double); // convert kilo and grams to pounds and ounces
+void output();
+int pound;
+double ounce, kg, g;
+double const kilo2ounce = 35.274, gram2ounce = 0.035274;
+
+void input();
+int imperial2metric_converter(double, double);
+void output();
+int pound;
+double ounce, kg, g;
+double const kilo2ounce = 35.274, gram2ounce = 0.035274;
+char Conversion_choice;
+
+int main()
+{
+
+
+
+}
+
+void conversion_type()
+{
+	cout << "Which coversion do you want? (1 for ) : ";
+	cin >> Conversion_choice;
+}
+
+
+void input()
+{
+	cout << "Enter kilogram and gram : ";
+	cin >> kg >> g;
+}
+
+int imperial2metric_converter(double, double)
+{
+	double total_weight = kg * kilo2ounce + g * gram2ounce;
+	pound = total_weight / 16;
+	ounce = total_weight - pound * 16;
+	return 0;
+}
+
+void output()
+{
+	cout << "pound is : " << pound << endl;
+	cout << "ounce is : " << ounce << endl;
+}
+
+
+
+	input();
+	converter(kg, g);
+	output();
+
+
+void input()
+{
+	cout << "Enter kilogram and gram : ";
+	cin >> kg >> g;
+}
+
+int metric2imperial_converter(double, double)
+{
+	double total_weight = kg * kilo2ounce + g * gram2ounce;
+	pound = total_weight / 16;
+	ounce = total_weight - pound * 16;
+	return 0;
+}
+
+void output()
+{
+	cout << "pound is : " << pound << endl;
+	cout << "ounce is : " << ounce << endl;
+}
