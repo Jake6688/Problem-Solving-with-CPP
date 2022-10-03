@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+void input();
+double converter(double,double); // meters and centimeters to feet and inches
+void output();
+
+double meters, centimeters, inches;
+double const meter2inch = 39.3701, cemtimeter2inch = 0.393701;
+int feet;
+
+int main()
+{
+	input();
+	converter(meters,centimeters);
+	output();
+}
+
+void input()
+{
+	cout << "Enter meters and centimeters : ";
+	cin >> meters >> centimeters;
+}
+double converter(double, double)
+{
+	double total_len = meters * meter2inch + centimeters * cemtimeter2inch;
+	feet = total_len / 12;
+	inches = total_len - feet *12;
+	return 0;
+}
+void output()
+{
+	cout << "Total feets is : " << feet << endl;
+	cout << "Total inches is : " << inches << endl;
+}
