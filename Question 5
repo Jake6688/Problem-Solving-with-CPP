@@ -1,0 +1,37 @@
+	#include <iostream>
+	using namespace std;
+
+	void input();
+	double converter(double,double); // convert pounds and ounces to kilo and grams
+	void output();
+
+	double pound, ounce, gram;
+	int kg;
+	double const ounce2gram = 28.3495, pound2gram = 453.592;
+
+	int main()
+	{
+		do {
+			input();
+			converter(pound, ounce);
+			output();
+		} while (true);
+	}
+
+	void input()
+	{
+		cout << "Enter pounds and ounces : ";
+		cin >> pound >> ounce;
+	}
+	double converter(double, double)
+	{
+		double total_weight = ounce * ounce2gram + pound * pound2gram;
+		kg = total_weight / 1000;
+		gram = total_weight - kg*1000;
+		return 1.0;
+	}
+	void output()
+	{
+		cout << "kg is : " << kg << endl;
+		cout << "g is : " << gram << endl;
+	}
