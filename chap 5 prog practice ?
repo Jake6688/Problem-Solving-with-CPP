@@ -1,0 +1,106 @@
+/*
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double average(double,double,double,double);
+double standard_deviation(double);
+
+
+double int1, int2, int3, int4, avg = 0;
+char y_n = 'y';
+
+int main()
+{
+    do{
+        cout << "Enter 4 numbers : ";
+        cin >> int1 >> int2 >> int3 >> int4;
+        cout << "Average is : " << average(int1, int2, int3, int4) << endl;
+        cout << "Standard deviation is: " << standard_deviation(average(int1, int2, int3, int4)) << endl;
+        cout << "More y/n? : ";
+        cin >> y_n;
+    }while(y_n == 'y' || y_n == 'Y');
+}
+double average(double a,double b,double c,double d)
+{
+    avg = (a+b+c+d)/4;
+    return avg;
+}
+double standard_deviation(double average)
+{
+    int sd1=pow(int1-avg,2);
+    int sd2=pow(int2-avg,2);
+    int sd3=pow(int3-avg,2);
+    int sd4=pow(int4-avg,2);
+    int sd_sum_avg= (sd1+sd2+sd3+sd4)/4;
+    int sd = sqrt(sd_sum_avg);
+    return sd;
+}*/
+
+/*
+
+#include <iostream>
+using namespace std;
+
+void input();//input function
+double converter(double f,double i);
+//precondition, f and i are assigned double value
+//postcondition, return meters and centimeters
+void output(double,double);
+
+double foot=0,inch=0, meters=0, centimeters=0;
+double const foot2centimeter = 30.48, inch2centimeter=2.54;
+int main()
+{
+    input();
+    converter(foot,inch);
+    output(meters,centimeters);
+}
+void input()
+{
+    cout << "WELLCOME TO DISTANCE CONVERTER ENTER FOOT AND INCHES : ";
+    cin >> foot >> inch;
+}
+double converter(double foot,double inches)
+{
+    centimeters = foot*foot2centimeter+ inches*inch2centimeter;
+    meters = static_cast<int>(centimeters/100);
+    centimeters = foot*foot2centimeter+ inches*inch2centimeter - meters*100;
+}
+void output(double meters, double centimeters)
+{
+    cout << "Meters is : " << meters << endl << "Centimeters is : " << centimeters << endl;
+}*/
+
+#include <iostream>
+using namespace std;
+
+void input();//input function
+double converter(double cm,double m);
+//precondition, f and i are assigned double value
+//postcondition, return meters and centimeters
+void output(double,double);
+
+double foot=0,inch=0, meters=0, centimeters=0;
+double const cm2inchs = 0.393701, m2inch=39.3701;
+int main()
+{
+    input();
+    converter(foot,inch);
+    output(meters,centimeters);
+}
+void input()
+{
+    cout << "WELLCOME TO DISTANCE CONVERTER ENTER FOOT AND INCHES : ";
+    cin >> foot >> inch;
+}
+double converter(double foot,double inches)
+{
+    centimeters = foot*foot2centimeter+ inches*inch2centimeter;
+    meters = static_cast<int>(centimeters/100);
+    centimeters = foot*foot2centimeter+ inches*inch2centimeter - meters*100;
+}
+void output(double meters, double centimeters)
+{
+    cout << "Meters is : " << meters << endl << "Centimeters is : " << centimeters << endl;
+}
