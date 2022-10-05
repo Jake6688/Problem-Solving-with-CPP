@@ -22,3 +22,20 @@ int main()
 	cout << "Congratulations!" << endl;
 	return 0;
 }
+
+//input output format flag 
+    outStream.setf(ios::fixed);
+    outStream.setf(ios::showpoint);
+    outStream.precision(3);
+    //Sets the decimal precision to be used to format floating-point values on output operations.
+    
+    Other possible format options:
+
+left 	left-justify the output
+right	 right-justify the output
+showpoint 	display decimal point and trailing zeros for all floating point numbers, even if the decimal places are not needed.
+uppercase	display the "e" in E-notation as "E" rather than "e"
+showpos	display a leading plus sign before positive values
+scientific	display floating point numbers in scientific ("E") notation
+fixed	display floating point numbers in normal notation - no trailing zeroes and no scientific notation
+When the showpoint format flag is set, the decimal point is always written for floating point values inserted into the stream 
