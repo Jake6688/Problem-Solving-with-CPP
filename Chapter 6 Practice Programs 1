@@ -13,7 +13,7 @@ int main()
 	ofstream fout;
 	int next;
 	
-	fin.open("test.txt");
+	fin.open("test_input.txt");
 	fout.open("test_output.txt");
 	fin >> next;
 	fout << next << " ";
