@@ -1,0 +1,78 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream fin;
+	int count = 0;
+	fin.open("test_input.txt");
+	if (fin.fail())
+	{
+		cout << "Fail to initialize input file.";
+		exit(0);
+	}
+	double next;
+	while (fin >> next)
+	{
+		cout << "current read : " << next << endl;
+		count++;
+	}
+	fin.close();
+	cout << "The input documents contains : " << count << " numbers." << endl;
+
+	if (count % 2 == 0)//even amount of numbers
+	{
+		double first_median = 0, second_median = 0, real_median = 0;
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		double next = 0;
+		int counter = 0;
+		while (counter < count / 2) {
+			fin >> next;
+			counter++;
+		}
+		cout << "The first_median is : " << next << endl;
+		first_median = next;
+		fin.close();
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		next = 0;
+		counter = 0;
+		while (counter < (count / 2 + 1)) {
+			fin >> next;
+			counter++;
+		}
+		cout << "The second_median is : " << next << endl;
+		second_median = next;
+		fin.close();
+		real_median = (first_median + second_median) / 2;
+		cout << "Real median is : " << real_median << endl;
+	}
+	else if (count % 2 != 0)//odd amount of numbers
+	{
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		double next;
+		int counter = 0;
+		while (counter < ((count / 2) + 1))
+		{
+			fin >> next;
+			counter++;
+		}
+		cout << "The median number is : " << next;
+		fin.close();
+	}
+}
