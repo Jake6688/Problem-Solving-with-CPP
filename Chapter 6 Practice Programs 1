@@ -1,0 +1,40 @@
+///Write a program that will search a file of numbers of type int and write 
+///the largest and the smallest number to the screen.
+///the file contains nothing but numbers of type int separated by blanks or line breaks. 
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	int min, max;
+
+	ifstream fin;
+	ofstream fout;
+	int next;
+	
+	fin.open("test.txt");
+	fout.open("test_output.txt");
+	fin >> next;
+	fout << next << " ";
+	cout << "next is : " << next << endl;
+	min = next;
+	max = next;
+	while(fin >> next) {
+		cout << "next is : " << next << endl;
+		if (next < min){
+			min = next;
+			fout << next << " ";;
+		}
+		else if (next > max){
+			max = next;
+			fout << next << " ";;
+		}
+	}
+
+	fin.close();
+	fout.close();
+
+	cout << "Max is  : " << max << endl;
+	cout << "Min is  : " << min << endl;
+}
