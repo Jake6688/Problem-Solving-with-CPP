@@ -1,0 +1,35 @@
+///Write a program that will search a file of numbers of type double and write 
+///the average to the screen.
+///the file contains nothing but numbers of type int separated by blanks or line breaks. 
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream fin;
+
+	fin.open("test_input.txt");
+
+	double next,count=0,sum=0;
+
+	if (fin.fail())
+	{
+		cout << "Stream initialization failed! Ending program now.";
+		exit(1);
+	}
+
+	while (fin >> next)
+	{
+		cout.setf(ios::fixed);
+		cout.setf(ios::showpoint);
+		cout.setf(ios::showpos);
+		cout.precision(2);
+		cout << "current number is : " << next << "." << endl;
+		count++;
+		sum += next;
+	}
+	fin.close();
+	cout << "The average is : " << sum / count << "." << endl;
+
+}
