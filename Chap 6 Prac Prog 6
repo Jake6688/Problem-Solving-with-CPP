@@ -1,0 +1,32 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+void space_mod(ifstream&,ofstream&);
+
+int main() {
+	ifstream fin;
+	ofstream fout;
+	
+	fin.open("test_input.txt");
+	fout.open("test_output.txt");
+	if (fin.fail()) cout << "input initialization failed";
+	if (fout.fail()) cout << "output initialization failed";
+
+	space_mod(fin,fout);
+
+	fin.close();
+	fout.close();
+}
+
+void space_mod(ifstream& inputstream, ofstream& outputstream) {
+	char next, lastnext;
+	while (inputstream.get(next)) {		
+		lastnext = next;
+		if (lastnext == ' ' and next == ' '){
+			//remove white space
+			//dont fout next
+			}
+		outputstream << next;
+	}
+}
