@@ -22,7 +22,7 @@ int main() {
 		last_next = next;
 	}
 	fout.close();
-///not working as intended, a longer advice will not be overwritten by a shorter one
+
 	fin.open("test_output.txt");
 	fout.open("test_input.txt");
 	while (fin.get(next)) {
