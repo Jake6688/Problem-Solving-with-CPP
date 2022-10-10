@@ -1,0 +1,119 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream fin;
+	int count = 0;
+	fin.open("test_input.txt");
+	if (fin.fail())
+	{
+		cout << "Fail to initialize input file.";
+		exit(0);
+	}
+	double next;
+	while (fin >> next)
+	{
+		cout << "current read : " << next << endl;
+		count++;
+	}
+	fin.close();
+	cout << "The input documents contains : " << count << " numbers." << endl;
+
+	if (true)//even amount of numbers
+	{
+		double first_median = 0, second_median = 0, real_median = 0;
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		double next;
+		int counter = 0;
+		while (counter < count / 2) {
+			fin >> next;
+			counter++;
+		}
+		first_median = next;
+		fin.close();
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		counter = 0;
+		while (counter < (count / 2 + 1)) {
+			fin >> next;
+			counter++;
+		}
+		second_median = next;
+		fin.close();
+		real_median = (first_median + second_median) / 2;
+
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		counter = 0;
+		while (counter < ((count / 2)/2)) {
+			fin >> next;
+			counter++;
+		}
+		double first_quartile_est_1 = next;
+		fin.close();
+
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		counter = 0;
+		while (counter < (((count / 2) / 2) + 1)) {
+			fin >> next;
+			counter++;
+		}
+		double first_quartile_est_2 = next;
+		fin.close();
+		double first_quartile = (first_quartile_est_1 + first_quartile_est_2) / 2;
+		cout << "The first quartile is : " << first_quartile << endl;
+
+		cout << "The second quartile is : " << real_median << endl;
+
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+		counter = 0;
+		while (counter < ((count / 2) + ((count / 2) / 2))) {
+			fin >> next;
+			counter++;
+		}
+		double third_quartile_est_1 = next;
+		fin.close();
+
+		fin.open("test_input.txt");
+		if (fin.fail())
+		{
+			cout << "Fail to initialize input file.";
+			exit(0);
+		}
+
+		counter = 0;
+		while (counter < ((count / 2) + (((count / 2) / 2) + 1))) {
+			fin >> next;
+			counter++;
+		}
+		double third_quartile_est_2 = next;
+		fin.close();
+		double third_quartile = (third_quartile_est_1 + third_quartile_est_2) / 2;
+		cout << "The third quartile is : " << third_quartile;
+	}
+}
