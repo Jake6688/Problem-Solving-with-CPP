@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+	
+	ifstream fin;
+	fstream fout;
+	
+	fin.open("test_input.txt");
+	char next, last_next;
+	while (fin.get(next)) {//print out original advice
+		cout << next;
+	}
+	fin.close();
+
+	fout.open("test_output.txt");
+	cout << endl << "Type in a different piece of advice: ";
+	last_next = next;
+	while (cin.get(next) && ! (last_next == '\n' && next == '\n')) {//asking for advice
+		fout << next;
+		last_next = next;
+	}
+	fout.close();
+///not working as intended, a longer advice will not be overwritten by a shorter one
+	fin.open("test_output.txt");
+	fout.open("test_input.txt");
+	while (fin.get(next)) {
+		fout << next;
+	}
+	fin.close();
+	fout.close();
+}
