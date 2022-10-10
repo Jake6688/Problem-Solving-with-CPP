@@ -1,0 +1,50 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+
+/// <summary>
+/// takes input from file with numbers of type double
+/// </summary>
+/// returns average and standard deviation  
+ 
+double average(ifstream&);
+double standard_deviation(ifstream&);
+
+int main() {
+	ifstream fin;
+	fin.open("test_input.txt");
+	cout << average(fin) << endl;
+	fin.close();
+	
+	fin.open("test_input.txt");
+	cout << standard_deviation(fin);
+	fin.close();
+}
+
+double average(ifstream& inputstream)
+{
+
+	int count = 0;
+	double next,sum=0, average;
+	while (inputstream >> next) {
+		sum += next;
+		count++;
+	}
+	average = sum / count;
+	return average;
+}
+
+double standard_deviation(ifstream& inputstream){
+	double a = average(inputstream);
+	inputstream.close();
+	inputstream.open("test_input.txt");
+	double next, count=0, sum=0;
+	while (inputstream >> next) {
+		double d = pow(next - a,2);
+		sum += d;
+		count++;
+	}
+	double sd = sqrt(sum / count);
+	return sd;
+}
